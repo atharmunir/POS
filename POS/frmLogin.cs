@@ -11,11 +11,11 @@ using System.Data.SqlClient;
 
 namespace POS
 {
-    public partial class Form1 : Form
+    public partial class frmLogin : Form
     {
         // Connection String "cs"
         
-        public Form1()
+        public frmLogin()
         {
             InitializeComponent();
         }
