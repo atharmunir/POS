@@ -86,16 +86,17 @@
             // 
             this.discounttextBox.Location = new System.Drawing.Point(169, 249);
             this.discounttextBox.Name = "discounttextBox";
-            this.discounttextBox.ReadOnly = true;
             this.discounttextBox.Size = new System.Drawing.Size(152, 22);
             this.discounttextBox.TabIndex = 2;
             // 
             // quantitytextBox
             // 
+            this.quantitytextBox.Enabled = false;
             this.quantitytextBox.Location = new System.Drawing.Point(374, 50);
             this.quantitytextBox.Name = "quantitytextBox";
             this.quantitytextBox.Size = new System.Drawing.Size(152, 22);
             this.quantitytextBox.TabIndex = 3;
+            this.quantitytextBox.TextChanged += new System.EventHandler(this.quantitytextBox_TextChanged);
             // 
             // subtotaltextBox
             // 
@@ -104,6 +105,7 @@
             this.subtotaltextBox.ReadOnly = true;
             this.subtotaltextBox.Size = new System.Drawing.Size(152, 22);
             this.subtotaltextBox.TabIndex = 4;
+            this.subtotaltextBox.TextChanged += new System.EventHandler(this.subtotaltextBox_TextChanged);
             // 
             // taxtextBox
             // 
@@ -300,6 +302,7 @@
             this.itemcomboBox.Name = "itemcomboBox";
             this.itemcomboBox.Size = new System.Drawing.Size(152, 24);
             this.itemcomboBox.TabIndex = 0;
+            this.itemcomboBox.SelectedIndexChanged += new System.EventHandler(this.itemcomboBox_SelectedIndexChanged);
             // 
             // frmSale
             // 
