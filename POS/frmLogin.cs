@@ -63,6 +63,7 @@ namespace POS
             if(dr.HasRows == true)
             {
                 MessageBox.Show("Login Sucess!");
+                
             }
             else
             {
