@@ -16,9 +16,11 @@ namespace POS
 
         float tax = 0;
         
+        //Constructor
         public frmSale()
         {
             InitializeComponent();
+            usertextBox.Text = frmLogin.username;
             GetItems();
         }
 

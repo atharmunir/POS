@@ -35,11 +35,11 @@ namespace POS
             switch(check)
             {
                 case true :
-                    textBox2.UseSystemPasswordChar = false;
+                    passwordtextBox.UseSystemPasswordChar = false;
                     break;
 
                 default :
-                    textBox2.UseSystemPasswordChar = true;
+                    passwordtextBox.UseSystemPasswordChar = true;
                     break;
 
             }
@@ -52,8 +52,8 @@ namespace POS
             SqlConnection con = new SqlConnection(cs);
             string query = "select * from login_tbl where username = @user and pass = @pass";
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@user", textBox1.Text);
-            cmd.Parameters.AddWithValue("@pass", textBox2.Text);
+            cmd.Parameters.AddWithValue("@user", loginUsertextBox.Text);
+            cmd.Parameters.AddWithValue("@pass", passwordtextBox.Text);
 
             con.Open();
 
@@ -66,9 +66,9 @@ namespace POS
             if(dr.HasRows == true)
             {
                 MessageBox.Show("Login Sucess!");
-                username = textBox1.Text;
+                username = loginUsertextBox.Text;
                 this.Hide();
-                frmMain MainForm = new frmMain();
+                frmSale MainForm = new frmSale();
                 MainForm.ShowDialog();
                 
             }
