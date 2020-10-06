@@ -13,8 +13,11 @@ namespace POS
 {
     public partial class frmLogin : Form
     {
+
+        public static string username = "";
         // Connection String "cs"
-        
+        string cs = @"Data Source=DESKTOP-A0I46IF\SQLEXPRESS;Initial Catalog=pos_db;Integrated Security=True";
+
         public frmLogin()
         {
             InitializeComponent();
@@ -45,7 +48,7 @@ namespace POS
         private void button1_Click(object sender, EventArgs e)
         {
             //string cs = ConfigurationManager.ConnectionStrings["dbcs"].ConnectionString;
-            string cs = @"Data Source=DESKTOP-A0I46IF\SQLEXPRESS;Initial Catalog=pos_db;Integrated Security=True";
+            
             SqlConnection con = new SqlConnection(cs);
             string query = "select * from login_tbl where username = @user and pass = @pass";
             SqlCommand cmd = new SqlCommand(query, con);
@@ -63,6 +66,10 @@ namespace POS
             if(dr.HasRows == true)
             {
                 MessageBox.Show("Login Sucess!");
+                username = textBox1.Text;
+                this.Hide();
+                frmMain MainForm = new frmMain();
+                MainForm.ShowDialog();
                 
             }
             else

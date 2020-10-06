@@ -62,7 +62,7 @@ namespace POS
 
             pricetextBox.Text = price.ToString();
 
-
+            //con.Close();
         }
 
 
