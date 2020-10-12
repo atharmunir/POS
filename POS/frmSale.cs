@@ -16,6 +16,7 @@ namespace POS
 
         int tax = 0;
         int SrNo = 0;
+        int GrandTotal = 0;
 
         //Constructor
         public frmSale()
@@ -61,21 +62,29 @@ namespace POS
 
         void GetPrice()
         {
-            int price = 0;
-            SqlConnection con = new SqlConnection(cs);
-            string query = "select item_price from items_tbl where item_name = @name";
-            SqlDataAdapter sda = new SqlDataAdapter(query, con);
-            sda.SelectCommand.Parameters.AddWithValue("@name", itemcomboBox.SelectedItem.ToString());
-            DataTable data = new DataTable();
-            sda.Fill(data);
-
-            if (data.Rows.Count > 0)
+            if(itemcomboBox.SelectedItem == null)
             {
-                price = Convert.ToInt32(data.Rows[0]["item_price"]);
+
             }
+            else
+            {
 
-            pricetextBox.Text = price.ToString();
+                int price = 0;
+                SqlConnection con = new SqlConnection(cs);
+                string query = "select item_price from items_tbl where item_name = @name";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                sda.SelectCommand.Parameters.AddWithValue("@name", itemcomboBox.SelectedItem.ToString());
+                DataTable data = new DataTable();
+                sda.Fill(data);
 
+                if (data.Rows.Count > 0)
+                {
+                    price = Convert.ToInt32(data.Rows[0]["item_price"]);
+                }
+
+                pricetextBox.Text = price.ToString();
+            }
+            
             //con.Close();
         }
 
@@ -92,20 +101,41 @@ namespace POS
             quantitytextBox.Enabled = true;
         }
 
+
+        //Subtotal
         private void quantitytextBox_TextChanged(object sender, EventArgs e)
         {
-            int price = Convert.ToInt32(pricetextBox.Text);
-            int discount = Convert.ToInt32(discounttextBox.Text);
-            int quantity = Convert.ToInt32(quantitytextBox.Text);
-            int subTotal = price * quantity;
-            subTotal = subTotal - discount * quantity;
+            if (string.IsNullOrEmpty(quantitytextBox.Text) == true)
+            {
 
-            subtotaltextBox.Text = subTotal.ToString();
+            }
+            else
+            {
 
+
+                int price = Convert.ToInt32(pricetextBox.Text);
+                int discount = Convert.ToInt32(discounttextBox.Text);
+                int quantity = Convert.ToInt32(quantitytextBox.Text);
+                int subTotal = price * quantity;
+                subTotal = subTotal - discount * quantity;
+
+                subtotaltextBox.Text = subTotal.ToString();
+            }
         }
 
+        //Add TAX to subtotal
         private void subtotaltextBox_TextChanged(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(subtotaltextBox.Text) == true)
+            {
+
+            }
+
+            else
+            {
+
+            
+
             int subTotal = Convert.ToInt32(subtotaltextBox.Text);
 
             //int tax = 0;
@@ -113,10 +143,27 @@ namespace POS
             tax = (int)(subTotal * 0.11);
 
             taxtextBox.Text = tax.ToString();
-
+            }
         }
 
-        
+        //Total with TAX
+        private void taxtextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(taxtextBox.Text) == true)
+            {
+
+            }
+
+            else
+            {
+
+
+                int subTotal = Convert.ToInt32(subtotaltextBox.Text);
+                int tax = Convert.ToInt32(taxtextBox.Text);
+                int totalCost = subTotal + tax;
+                totaltextBox.Text = totalCost.ToString();
+            }
+        }
 
         //Method to add items in DataGridView (parameterised)
         void AddDataToGridView(string Sr_No, String item_name, string unit_price, string discount, string qty, string sub_total, string tax, string total_cost)
@@ -130,14 +177,38 @@ namespace POS
         {
             //Calling AddDataGridView Method
             AddDataToGridView((++SrNo).ToString(),itemcomboBox.SelectedItem.ToString(), pricetextBox.Text, discounttextBox.Text, quantitytextBox.Text, subtotaltextBox.Text, taxtextBox.Text, totaltextBox.Text  ) ;
+
+            ResetContorls();
+
+            //Calling GrandTotal Method
+
+            CalculateGrandTotal();
         }
 
-        private void taxtextBox_TextChanged(object sender, EventArgs e)
+        //Reset controls after adding item in Grid
+
+        void ResetContorls()
         {
-            int subTotal = Convert.ToInt32(subtotaltextBox.Text);
-            int tax = Convert.ToInt32(taxtextBox.Text);
-            int totalCost = subTotal + tax;
-            totaltextBox.Text = totalCost.ToString();
+            itemcomboBox.SelectedItem = null;
+            pricetextBox.Clear();
+            discounttextBox.Clear();
+            quantitytextBox.Clear();
+            subtotaltextBox.Clear();
+            taxtextBox.Clear();
+            totaltextBox.Clear();
+        }
+
+        //Method to Claculate Grand Total
+        void CalculateGrandTotal()
+        {
+            GrandTotal = 0;
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                GrandTotal = GrandTotal + Convert.ToInt32(dataGridView1.Rows[i].Cells[7].Value);
+            }
+            grandtotaltextBox.Text = GrandTotal.ToString();
+
         }
     }
 }
