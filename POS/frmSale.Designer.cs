@@ -114,6 +114,7 @@
             this.taxtextBox.ReadOnly = true;
             this.taxtextBox.Size = new System.Drawing.Size(152, 22);
             this.taxtextBox.TabIndex = 5;
+            this.taxtextBox.TextChanged += new System.EventHandler(this.taxtextBox_TextChanged);
             // 
             // totaltextBox
             // 
@@ -276,6 +277,7 @@
             this.btnAdd.TabIndex = 24;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnReset
             // 
@@ -289,6 +291,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(43, 345);
             this.dataGridView1.Name = "dataGridView1";
@@ -337,7 +340,7 @@
             this.Controls.Add(this.usertextBox);
             this.Controls.Add(this.invoicetextBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sale";

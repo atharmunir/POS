@@ -14,27 +14,39 @@ namespace POS
     {
         string cs = @"Data Source=DESKTOP-A0I46IF\SQLEXPRESS;Initial Catalog=pos_db;Integrated Security=True";
 
-        float tax = 0;
-        
+        int tax = 0;
+        int SrNo = 0;
+
         //Constructor
         public frmSale()
         {
             InitializeComponent();
             usertextBox.Text = frmLogin.username;
             GetItems();
+
+            //DataGrid View
+            dataGridView1.ColumnCount = 8;
+            dataGridView1.Columns[0].Name = "Sr.No.";
+            dataGridView1.Columns[1].Name = "Item";
+            dataGridView1.Columns[2].Name = "Unit Price";
+            dataGridView1.Columns[3].Name = "Discount/item";
+            dataGridView1.Columns[4].Name = "Qty";
+            dataGridView1.Columns[5].Name = "Sub Total";
+            dataGridView1.Columns[6].Name = "Tax";
+            dataGridView1.Columns[7].Name = "Total";
         }
 
         private void frmSale_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         void GetItems()
         {
-            
+
             SqlConnection con = new SqlConnection(cs);
             string query = "select * from items_tbl";
-            
+
             SqlCommand cmd = new SqlCommand(query, con);
 
             con.Open();
@@ -59,7 +71,7 @@ namespace POS
 
             if (data.Rows.Count > 0)
             {
-                price = Convert.ToInt32( data.Rows[0]["item_price"]);
+                price = Convert.ToInt32(data.Rows[0]["item_price"]);
             }
 
             pricetextBox.Text = price.ToString();
@@ -97,13 +109,35 @@ namespace POS
             int subTotal = Convert.ToInt32(subtotaltextBox.Text);
 
             //int tax = 0;
-            
-            tax =  (float)(subTotal * 0.11) ;
+
+            tax = (int)(subTotal * 0.11);
 
             taxtextBox.Text = tax.ToString();
-            
 
+        }
 
+        
+
+        //Method to add items in DataGridView (parameterised)
+        void AddDataToGridView(string Sr_No, String item_name, string unit_price, string discount, string qty, string sub_total, string tax, string total_cost)
+        {
+            //Arry for ROW ---- Call this in Add Button
+            string[] row = { Sr_No, item_name, unit_price, discount, qty, sub_total, tax, total_cost };
+            dataGridView1.Rows.Add(row);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //Calling AddDataGridView Method
+            AddDataToGridView((++SrNo).ToString(),itemcomboBox.SelectedItem.ToString(), pricetextBox.Text, discounttextBox.Text, quantitytextBox.Text, subtotaltextBox.Text, taxtextBox.Text, totaltextBox.Text  ) ;
+        }
+
+        private void taxtextBox_TextChanged(object sender, EventArgs e)
+        {
+            int subTotal = Convert.ToInt32(subtotaltextBox.Text);
+            int tax = Convert.ToInt32(taxtextBox.Text);
+            int totalCost = subTotal + tax;
+            totaltextBox.Text = totalCost.ToString();
         }
     }
 }
