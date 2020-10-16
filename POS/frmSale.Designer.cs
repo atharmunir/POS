@@ -55,6 +55,7 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.itemcomboBox = new System.Windows.Forms.ComboBox();
+            this.btnClearGrid = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -289,6 +290,7 @@
             this.btnReset.TabIndex = 25;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // dataGridView1
             // 
@@ -297,7 +299,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(43, 345);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(806, 283);
+            this.dataGridView1.Size = new System.Drawing.Size(806, 255);
             this.dataGridView1.TabIndex = 26;
             // 
             // itemcomboBox
@@ -309,11 +311,22 @@
             this.itemcomboBox.TabIndex = 0;
             this.itemcomboBox.SelectedIndexChanged += new System.EventHandler(this.itemcomboBox_SelectedIndexChanged);
             // 
+            // btnClearGrid
+            // 
+            this.btnClearGrid.Location = new System.Drawing.Point(761, 606);
+            this.btnClearGrid.Name = "btnClearGrid";
+            this.btnClearGrid.Size = new System.Drawing.Size(75, 28);
+            this.btnClearGrid.TabIndex = 27;
+            this.btnClearGrid.Text = "Clear";
+            this.btnClearGrid.UseVisualStyleBackColor = true;
+            this.btnClearGrid.Click += new System.EventHandler(this.btnClearGrid_Click);
+            // 
             // frmSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 640);
+            this.Controls.Add(this.btnClearGrid);
             this.Controls.Add(this.itemcomboBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnReset);
@@ -382,5 +395,6 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox itemcomboBox;
+        private System.Windows.Forms.Button btnClearGrid;
     }
 }

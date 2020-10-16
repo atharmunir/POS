@@ -196,6 +196,10 @@ namespace POS
             subtotaltextBox.Clear();
             taxtextBox.Clear();
             totaltextBox.Clear();
+            grandtotaltextBox.Clear();
+            amountpaidtextBox.Clear(); // Clear 
+            changetextBox.Clear();
+            quantitytextBox.Enabled = false;
         }
 
         //Method to Claculate Grand Total
@@ -226,6 +230,18 @@ namespace POS
 
                 changetextBox.Text = change.ToString();
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ResetContorls();
+        }
+
+        private void btnClearGrid_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            grandtotaltextBox.Clear();
+            SrNo = 0;
         }
     }
 }
