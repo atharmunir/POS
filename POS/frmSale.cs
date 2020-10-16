@@ -210,5 +210,22 @@ namespace POS
             grandtotaltextBox.Text = GrandTotal.ToString();
 
         }
+
+        private void amountpaidtextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(amountpaidtextBox.Text) == true)
+            {
+
+            }
+            else
+            {
+                int AmountPaid = Convert.ToInt32(amountpaidtextBox.Text);
+                int Fcost = Convert.ToInt32( grandtotaltextBox.Text);
+
+                int change = AmountPaid - Fcost;
+
+                changetextBox.Text = change.ToString();
+            }
+        }
     }
 }

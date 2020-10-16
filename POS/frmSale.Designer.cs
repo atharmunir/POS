@@ -63,7 +63,7 @@
             this.invoicetextBox.Location = new System.Drawing.Point(169, 50);
             this.invoicetextBox.Name = "invoicetextBox";
             this.invoicetextBox.ReadOnly = true;
-            this.invoicetextBox.Size = new System.Drawing.Size(152, 22);
+            this.invoicetextBox.Size = new System.Drawing.Size(152, 26);
             this.invoicetextBox.TabIndex = 10;
             // 
             // usertextBox
@@ -71,7 +71,7 @@
             this.usertextBox.Location = new System.Drawing.Point(169, 102);
             this.usertextBox.Name = "usertextBox";
             this.usertextBox.ReadOnly = true;
-            this.usertextBox.Size = new System.Drawing.Size(152, 22);
+            this.usertextBox.Size = new System.Drawing.Size(152, 26);
             this.usertextBox.TabIndex = 11;
             // 
             // pricetextBox
@@ -79,14 +79,14 @@
             this.pricetextBox.Location = new System.Drawing.Point(169, 199);
             this.pricetextBox.Name = "pricetextBox";
             this.pricetextBox.ReadOnly = true;
-            this.pricetextBox.Size = new System.Drawing.Size(152, 22);
+            this.pricetextBox.Size = new System.Drawing.Size(152, 26);
             this.pricetextBox.TabIndex = 1;
             // 
             // discounttextBox
             // 
             this.discounttextBox.Location = new System.Drawing.Point(169, 249);
             this.discounttextBox.Name = "discounttextBox";
-            this.discounttextBox.Size = new System.Drawing.Size(152, 22);
+            this.discounttextBox.Size = new System.Drawing.Size(152, 26);
             this.discounttextBox.TabIndex = 2;
             // 
             // quantitytextBox
@@ -94,7 +94,7 @@
             this.quantitytextBox.Enabled = false;
             this.quantitytextBox.Location = new System.Drawing.Point(374, 50);
             this.quantitytextBox.Name = "quantitytextBox";
-            this.quantitytextBox.Size = new System.Drawing.Size(152, 22);
+            this.quantitytextBox.Size = new System.Drawing.Size(152, 26);
             this.quantitytextBox.TabIndex = 3;
             this.quantitytextBox.TextChanged += new System.EventHandler(this.quantitytextBox_TextChanged);
             // 
@@ -103,7 +103,7 @@
             this.subtotaltextBox.Location = new System.Drawing.Point(374, 102);
             this.subtotaltextBox.Name = "subtotaltextBox";
             this.subtotaltextBox.ReadOnly = true;
-            this.subtotaltextBox.Size = new System.Drawing.Size(152, 22);
+            this.subtotaltextBox.Size = new System.Drawing.Size(152, 26);
             this.subtotaltextBox.TabIndex = 4;
             this.subtotaltextBox.TextChanged += new System.EventHandler(this.subtotaltextBox_TextChanged);
             // 
@@ -112,7 +112,7 @@
             this.taxtextBox.Location = new System.Drawing.Point(374, 152);
             this.taxtextBox.Name = "taxtextBox";
             this.taxtextBox.ReadOnly = true;
-            this.taxtextBox.Size = new System.Drawing.Size(152, 22);
+            this.taxtextBox.Size = new System.Drawing.Size(152, 26);
             this.taxtextBox.TabIndex = 5;
             this.taxtextBox.TextChanged += new System.EventHandler(this.taxtextBox_TextChanged);
             // 
@@ -121,7 +121,7 @@
             this.totaltextBox.Location = new System.Drawing.Point(374, 199);
             this.totaltextBox.Name = "totaltextBox";
             this.totaltextBox.ReadOnly = true;
-            this.totaltextBox.Size = new System.Drawing.Size(152, 22);
+            this.totaltextBox.Size = new System.Drawing.Size(152, 26);
             this.totaltextBox.TabIndex = 6;
             // 
             // grandtotaltextBox
@@ -129,22 +129,23 @@
             this.grandtotaltextBox.Location = new System.Drawing.Point(374, 249);
             this.grandtotaltextBox.Name = "grandtotaltextBox";
             this.grandtotaltextBox.ReadOnly = true;
-            this.grandtotaltextBox.Size = new System.Drawing.Size(152, 22);
+            this.grandtotaltextBox.Size = new System.Drawing.Size(152, 26);
             this.grandtotaltextBox.TabIndex = 7;
             // 
             // amountpaidtextBox
             // 
             this.amountpaidtextBox.Location = new System.Drawing.Point(571, 50);
             this.amountpaidtextBox.Name = "amountpaidtextBox";
-            this.amountpaidtextBox.Size = new System.Drawing.Size(152, 22);
+            this.amountpaidtextBox.Size = new System.Drawing.Size(152, 26);
             this.amountpaidtextBox.TabIndex = 8;
+            this.amountpaidtextBox.TextChanged += new System.EventHandler(this.amountpaidtextBox_TextChanged);
             // 
             // changetextBox
             // 
             this.changetextBox.Location = new System.Drawing.Point(571, 102);
             this.changetextBox.Name = "changetextBox";
             this.changetextBox.ReadOnly = true;
-            this.changetextBox.Size = new System.Drawing.Size(152, 22);
+            this.changetextBox.Size = new System.Drawing.Size(152, 26);
             this.changetextBox.TabIndex = 9;
             // 
             // label1
@@ -153,7 +154,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(166, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 16);
+            this.label1.Size = new System.Drawing.Size(102, 20);
             this.label1.TabIndex = 12;
             this.label1.Text = "Invoice No.";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -164,7 +165,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(166, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 16);
+            this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 13;
             this.label2.Text = "User";
             // 
@@ -174,7 +175,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(166, 133);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 16);
+            this.label3.Size = new System.Drawing.Size(104, 20);
             this.label3.TabIndex = 14;
             this.label3.Text = "Select Item";
             // 
@@ -184,7 +185,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(166, 180);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 16);
+            this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 15;
             this.label4.Text = "Unit Price";
             // 
@@ -194,7 +195,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(166, 230);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 16);
+            this.label5.Size = new System.Drawing.Size(84, 20);
             this.label5.TabIndex = 16;
             this.label5.Text = "Discount";
             // 
@@ -204,7 +205,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(371, 31);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 16);
+            this.label6.Size = new System.Drawing.Size(79, 20);
             this.label6.TabIndex = 17;
             this.label6.Text = "Quantity";
             // 
@@ -214,7 +215,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(371, 83);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 16);
+            this.label7.Size = new System.Drawing.Size(89, 20);
             this.label7.TabIndex = 18;
             this.label7.Text = "Sub Total";
             // 
@@ -224,7 +225,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(371, 133);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 16);
+            this.label8.Size = new System.Drawing.Size(39, 20);
             this.label8.TabIndex = 19;
             this.label8.Text = "Tax";
             // 
@@ -234,7 +235,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(371, 180);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 16);
+            this.label9.Size = new System.Drawing.Size(51, 20);
             this.label9.TabIndex = 20;
             this.label9.Text = "Total";
             // 
@@ -244,7 +245,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(371, 230);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 16);
+            this.label10.Size = new System.Drawing.Size(108, 20);
             this.label10.TabIndex = 21;
             this.label10.Text = "Grand Total";
             // 
@@ -254,7 +255,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(568, 31);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 16);
+            this.label11.Size = new System.Drawing.Size(115, 20);
             this.label11.TabIndex = 22;
             this.label11.Text = "Amount Paid";
             // 
@@ -264,7 +265,7 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(568, 83);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 16);
+            this.label12.Size = new System.Drawing.Size(72, 20);
             this.label12.TabIndex = 23;
             this.label12.Text = "Change";
             // 
@@ -295,6 +296,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(43, 345);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(806, 283);
             this.dataGridView1.TabIndex = 26;
             // 
@@ -303,13 +305,13 @@
             this.itemcomboBox.FormattingEnabled = true;
             this.itemcomboBox.Location = new System.Drawing.Point(169, 150);
             this.itemcomboBox.Name = "itemcomboBox";
-            this.itemcomboBox.Size = new System.Drawing.Size(152, 24);
+            this.itemcomboBox.Size = new System.Drawing.Size(152, 28);
             this.itemcomboBox.TabIndex = 0;
             this.itemcomboBox.SelectedIndexChanged += new System.EventHandler(this.itemcomboBox_SelectedIndexChanged);
             // 
             // frmSale
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 640);
             this.Controls.Add(this.itemcomboBox);
