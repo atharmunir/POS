@@ -30,10 +30,10 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSale = new System.Windows.Forms.Button();
-            this.btnPurchase = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnPurchase = new System.Windows.Forms.Button();
+            this.btnSale = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -61,25 +61,15 @@
             this.panel2.Size = new System.Drawing.Size(259, 700);
             this.panel2.TabIndex = 2;
             // 
-            // btnSale
+            // btnLogout
             // 
-            this.btnSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSale.Location = new System.Drawing.Point(62, 192);
-            this.btnSale.Name = "btnSale";
-            this.btnSale.Size = new System.Drawing.Size(121, 65);
-            this.btnSale.TabIndex = 0;
-            this.btnSale.Text = "Sales";
-            this.btnSale.UseVisualStyleBackColor = true;
-            // 
-            // btnPurchase
-            // 
-            this.btnPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPurchase.Location = new System.Drawing.Point(62, 301);
-            this.btnPurchase.Name = "btnPurchase";
-            this.btnPurchase.Size = new System.Drawing.Size(121, 65);
-            this.btnPurchase.TabIndex = 1;
-            this.btnPurchase.Text = "Purchase";
-            this.btnPurchase.UseVisualStyleBackColor = true;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(62, 619);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(121, 35);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -91,15 +81,26 @@
             this.button3.Text = "Records";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // btnLogout
+            // btnPurchase
             // 
-            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(62, 619);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(121, 35);
-            this.btnLogout.TabIndex = 3;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPurchase.Location = new System.Drawing.Point(62, 301);
+            this.btnPurchase.Name = "btnPurchase";
+            this.btnPurchase.Size = new System.Drawing.Size(121, 65);
+            this.btnPurchase.TabIndex = 1;
+            this.btnPurchase.Text = "Purchase";
+            this.btnPurchase.UseVisualStyleBackColor = true;
+            // 
+            // btnSale
+            // 
+            this.btnSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSale.Location = new System.Drawing.Point(62, 192);
+            this.btnSale.Name = "btnSale";
+            this.btnSale.Size = new System.Drawing.Size(121, 65);
+            this.btnSale.TabIndex = 0;
+            this.btnSale.Text = "Sales";
+            this.btnSale.UseVisualStyleBackColor = true;
+            this.btnSale.Click += new System.EventHandler(this.btnSale_Click);
             // 
             // panel3
             // 
@@ -110,14 +111,14 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

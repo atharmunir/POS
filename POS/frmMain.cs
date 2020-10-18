@@ -20,5 +20,17 @@ namespace POS
         {
 
         }
+
+        private void btnSale_Click(object sender, EventArgs e)
+        {
+            frmSale frm = new frmSale();
+            frm.TopLevel = false;
+            panel3.Controls.Add(frm);
+
+            frm.BringToFront();
+
+            frm.Show();
+
+        }
     }
 }

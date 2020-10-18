@@ -56,6 +56,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.itemcomboBox = new System.Windows.Forms.ComboBox();
             this.btnClearGrid = new System.Windows.Forms.Button();
+            this.btnCheckOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -321,11 +322,23 @@
             this.btnClearGrid.UseVisualStyleBackColor = true;
             this.btnClearGrid.Click += new System.EventHandler(this.btnClearGrid_Click);
             // 
+            // btnCheckOut
+            // 
+            this.btnCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckOut.Location = new System.Drawing.Point(374, 300);
+            this.btnCheckOut.Name = "btnCheckOut";
+            this.btnCheckOut.Size = new System.Drawing.Size(105, 23);
+            this.btnCheckOut.TabIndex = 28;
+            this.btnCheckOut.Text = "Checkout";
+            this.btnCheckOut.UseVisualStyleBackColor = true;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
+            // 
             // frmSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 640);
+            this.Controls.Add(this.btnCheckOut);
             this.Controls.Add(this.btnClearGrid);
             this.Controls.Add(this.itemcomboBox);
             this.Controls.Add(this.dataGridView1);
@@ -396,5 +409,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox itemcomboBox;
         private System.Windows.Forms.Button btnClearGrid;
+        private System.Windows.Forms.Button btnCheckOut;
     }
 }

@@ -22,8 +22,10 @@ namespace POS
         public frmSale()
         {
             InitializeComponent();
+            GetInvoiceID();
             usertextBox.Text = frmLogin.username;
             GetItems();
+            
 
             //DataGrid View
             dataGridView1.ColumnCount = 8;
@@ -62,7 +64,7 @@ namespace POS
 
         void GetPrice()
         {
-            if(itemcomboBox.SelectedItem == null)
+            if (itemcomboBox.SelectedItem == null)
             {
 
             }
@@ -84,8 +86,8 @@ namespace POS
 
                 pricetextBox.Text = price.ToString();
             }
-            
-            //con.Close();
+
+
         }
 
 
@@ -134,15 +136,15 @@ namespace POS
             else
             {
 
-            
 
-            int subTotal = Convert.ToInt32(subtotaltextBox.Text);
 
-            //int tax = 0;
+                int subTotal = Convert.ToInt32(subtotaltextBox.Text);
 
-            tax = (int)(subTotal * 0.11);
+                //int tax = 0;
 
-            taxtextBox.Text = tax.ToString();
+                tax = (int)(subTotal * 0.11);
+
+                taxtextBox.Text = tax.ToString();
             }
         }
 
@@ -168,7 +170,7 @@ namespace POS
         //Method to add items in DataGridView (parameterised)
         void AddDataToGridView(string Sr_No, String item_name, string unit_price, string discount, string qty, string sub_total, string tax, string total_cost)
         {
-            //Arry for ROW ---- Call this in Add Button
+            //Array for ROW ---- Call this in Add Button
             string[] row = { Sr_No, item_name, unit_price, discount, qty, sub_total, tax, total_cost };
             dataGridView1.Rows.Add(row);
         }
@@ -176,7 +178,7 @@ namespace POS
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //Calling AddDataGridView Method
-            AddDataToGridView((++SrNo).ToString(),itemcomboBox.SelectedItem.ToString(), pricetextBox.Text, discounttextBox.Text, quantitytextBox.Text, subtotaltextBox.Text, taxtextBox.Text, totaltextBox.Text  ) ;
+            AddDataToGridView((++SrNo).ToString(), itemcomboBox.SelectedItem.ToString(), pricetextBox.Text, discounttextBox.Text, quantitytextBox.Text, subtotaltextBox.Text, taxtextBox.Text, totaltextBox.Text);
 
             ResetContorls();
 
@@ -224,7 +226,7 @@ namespace POS
             else
             {
                 int AmountPaid = Convert.ToInt32(amountpaidtextBox.Text);
-                int Fcost = Convert.ToInt32( grandtotaltextBox.Text);
+                int Fcost = Convert.ToInt32(grandtotaltextBox.Text);
 
                 int change = AmountPaid - Fcost;
 
@@ -242,6 +244,68 @@ namespace POS
             dataGridView1.Rows.Clear();
             grandtotaltextBox.Clear();
             SrNo = 0;
+        }
+
+        // Method for invoice number
+
+       void GetInvoiceID()
+        {
+            SqlConnection con = new SqlConnection(cs);
+            string query = "select invoice_id from order_master";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            
+            DataTable data = new DataTable();
+            sda.Fill(data);
+
+            if (data.Rows.Count < 1)
+            {
+                invoicetextBox.Text = "1";
+            }
+            else
+            {
+                string query2 = "select max(invoice_id) from order_master";
+                SqlCommand cmd = new SqlCommand(query2, con);
+
+                con.Open();
+                int a = Convert.ToInt32(cmd.ExecuteScalar());
+                a = a + 1;
+                invoicetextBox.Text = a.ToString();
+
+
+
+                con.Close();
+            }
+
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(cs);
+            string query = "insert into order_master values(@id, @user, @datetime, @finalcost)";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@id", invoicetextBox.Text);
+            cmd.Parameters.AddWithValue("@user", usertextBox.Text);
+            cmd.Parameters.AddWithValue("@datetime", DateTime.Now.ToString());
+            cmd.Parameters.AddWithValue("@finalcost", grandtotaltextBox.Text);
+
+            con.Open();
+            int a = cmd.ExecuteNonQuery();
+
+            if (a > 0)
+            {
+                MessageBox.Show("Checkout Successful!");
+                GetInvoiceID();
+                ResetContorls();
+
+            }
+            else
+            {
+                MessageBox.Show("Checkout Failed!");
+            }
+
+            con.Close();
+
+
         }
     }
 }
