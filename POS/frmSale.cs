@@ -293,9 +293,13 @@ namespace POS
 
             if (a > 0)
             {
-                MessageBox.Show("Checkout Successful!");
+                MessageBox.Show("Checkout Completed");
                 GetInvoiceID();
                 ResetContorls();
+
+                dataGridView1.Rows.Clear();
+                grandtotaltextBox.Clear();
+                SrNo = 0;
 
             }
             else
@@ -306,6 +310,42 @@ namespace POS
             con.Close();
 
 
+        }
+
+        //prevent entring characters in quantity box. (Only digits allowed)
+        private void quantitytextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (char.IsDigit(ch) == true)
+            {
+                e.Handled = false;
+            }
+            else if (ch == 8) //8 is backspace code
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        // Prevent entring characters in Amount Paid
+        private void amountpaidtextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (char.IsDigit(ch) == true)
+            {
+                e.Handled = false;
+            }
+            else if (ch == 8) //8 is backspace code
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

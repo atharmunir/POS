@@ -99,6 +99,7 @@
             this.quantitytextBox.Size = new System.Drawing.Size(152, 26);
             this.quantitytextBox.TabIndex = 3;
             this.quantitytextBox.TextChanged += new System.EventHandler(this.quantitytextBox_TextChanged);
+            this.quantitytextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantitytextBox_KeyPress);
             // 
             // subtotaltextBox
             // 
@@ -141,6 +142,7 @@
             this.amountpaidtextBox.Size = new System.Drawing.Size(152, 26);
             this.amountpaidtextBox.TabIndex = 8;
             this.amountpaidtextBox.TextChanged += new System.EventHandler(this.amountpaidtextBox_TextChanged);
+            this.amountpaidtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.amountpaidtextBox_KeyPress);
             // 
             // changetextBox
             // 
