@@ -59,6 +59,7 @@ namespace POS
                 string item_names = dr.GetString(1);
                 itemcomboBox.Items.Add(item_names);
             }
+            itemcomboBox.Sorted = true;
             con.Close();
         }
 
